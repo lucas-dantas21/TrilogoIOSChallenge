@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		792D69442636274700FB051E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792D69432636274700FB051E /* Movie.swift */; };
+		792D694B26364DB900FB051E /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792D694A26364DB900FB051E /* MovieService.swift */; };
 		794B10432635D47C0016699A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10422635D47C0016699A /* AppDelegate.swift */; };
 		794B10452635D47C0016699A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10442635D47C0016699A /* SceneDelegate.swift */; };
 		794B10472635D47C0016699A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10462635D47C0016699A /* ViewController.swift */; };
-		794B104A2635D47C0016699A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794B10482635D47C0016699A /* Main.storyboard */; };
 		794B104C2635D47C0016699A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794B104B2635D47C0016699A /* Assets.xcassets */; };
 		794B104F2635D47C0016699A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794B104D2635D47C0016699A /* LaunchScreen.storyboard */; };
+		794B10582635D56F0016699A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10572635D56F0016699A /* CustomCell.swift */; };
+		79C17B7426378E0C00D798B9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C17B7326378E0C00D798B9 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		792D69432636274700FB051E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		792D694A26364DB900FB051E /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		794B103F2635D47C0016699A /* TrilogoChallengerIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrilogoChallengerIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794B10422635D47C0016699A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794B10442635D47C0016699A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		794B10462635D47C0016699A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		794B10492635D47C0016699A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		794B104B2635D47C0016699A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		794B104E2635D47C0016699A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		794B10502635D47C0016699A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		794B10572635D56F0016699A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		79C17B7326378E0C00D798B9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		792D69422636273900FB051E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				792D69432636274700FB051E /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		792D6948263627DE00FB051E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				792D694A26364DB900FB051E /* MovieService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		794B10362635D47C0016699A = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +78,16 @@
 		794B10412635D47C0016699A /* TrilogoChallengerIOS */ = {
 			isa = PBXGroup;
 			children = (
+				792D6948263627DE00FB051E /* Services */,
+				792D69422636273900FB051E /* Models */,
 				794B10422635D47C0016699A /* AppDelegate.swift */,
 				794B10442635D47C0016699A /* SceneDelegate.swift */,
 				794B10462635D47C0016699A /* ViewController.swift */,
-				794B10482635D47C0016699A /* Main.storyboard */,
+				794B10572635D56F0016699A /* CustomCell.swift */,
 				794B104B2635D47C0016699A /* Assets.xcassets */,
 				794B104D2635D47C0016699A /* LaunchScreen.storyboard */,
 				794B10502635D47C0016699A /* Info.plist */,
+				79C17B7326378E0C00D798B9 /* DetailsViewController.swift */,
 			);
 			path = TrilogoChallengerIOS;
 			sourceTree = "<group>";
@@ -126,7 +151,6 @@
 			files = (
 				794B104F2635D47C0016699A /* LaunchScreen.storyboard in Resources */,
 				794B104C2635D47C0016699A /* Assets.xcassets in Resources */,
-				794B104A2635D47C0016699A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +161,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792D694B26364DB900FB051E /* MovieService.swift in Sources */,
 				794B10472635D47C0016699A /* ViewController.swift in Sources */,
 				794B10432635D47C0016699A /* AppDelegate.swift in Sources */,
+				794B10582635D56F0016699A /* CustomCell.swift in Sources */,
+				79C17B7426378E0C00D798B9 /* DetailsViewController.swift in Sources */,
 				794B10452635D47C0016699A /* SceneDelegate.swift in Sources */,
+				792D69442636274700FB051E /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		794B10482635D47C0016699A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				794B10492635D47C0016699A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		794B104D2635D47C0016699A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,12 +307,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC275C3ANY;
 				INFOPLIST_FILE = TrilogoChallengerIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mourayuri.TrilogoChallengerIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "lucasdantas-challengeIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,12 +326,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC275C3ANY;
 				INFOPLIST_FILE = TrilogoChallengerIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mourayuri.TrilogoChallengerIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "lucasdantas-challengeIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
