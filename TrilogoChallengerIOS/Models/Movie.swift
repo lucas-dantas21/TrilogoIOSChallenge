@@ -15,6 +15,7 @@ struct Movie: Decodable {
     let title: String
     let poster_path: String?
     let overview: String
+    let release_date: String
     
     var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(poster_path ?? "")")!

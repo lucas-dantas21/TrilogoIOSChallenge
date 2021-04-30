@@ -15,9 +15,9 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         self.setupDescritionTextView()
         self.setupConstraints()
-        self.setupSynopsisLabel()
+        self.setupTitleLabel()
         self.setupImagePoster()
-        self.view.backgroundColor = UIColor(red: 6 / 255, green: 9 / 255, blue: 87 / 255, alpha: 1.0)
+        self.view.backgroundColor = UIColor(red: 15 / 255, green: 15 / 255, blue: 5 / 255, alpha: 1.0)
     }
     
     init(movie: Movie) {
@@ -29,16 +29,16 @@ class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var synopsislabel : UILabel = {
+    var TitleLabel : UILabel = {
         var synopsisLabel = UILabel()
         synopsisLabel.translatesAutoresizingMaskIntoConstraints = false
         return synopsisLabel
     }()
     
-    private func setupSynopsisLabel(){
-        synopsislabel.text = "Sinopse"
-        synopsislabel.textColor = .white
-        synopsislabel.font = UIFont.boldSystemFont(ofSize: 22)
+    private func setupTitleLabel(){
+        TitleLabel.text = movie.title
+        TitleLabel.textColor = .white
+        TitleLabel.font = UIFont.boldSystemFont(ofSize: 22)
     }
     
     lazy var posterImageView : UIImageView = { [unowned self] in
@@ -70,17 +70,19 @@ class DetailsViewController: UIViewController {
     
     private func setupConstraints() {
         self.view.addSubview(descriptionTextView)
-        self.view.addSubview(synopsislabel)
+        self.view.addSubview(TitleLabel)
         self.view.addSubview(posterImageView)
         NSLayoutConstraint.activate([
             self.posterImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.posterImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.posterImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.posterImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.45),
+            self.posterImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5),
             
-            self.synopsislabel.topAnchor.constraint(equalTo: self.posterImageView.bottomAnchor, constant: 10),
+            self.TitleLabel.topAnchor.constraint(equalTo: self.posterImageView.bottomAnchor, constant: 10),
+            self.TitleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.TitleLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             
-            self.descriptionTextView.topAnchor.constraint(equalTo: self.synopsislabel.bottomAnchor, constant: 10),
+            self.descriptionTextView.topAnchor.constraint(equalTo: self.TitleLabel.bottomAnchor, constant: 10),
             self.descriptionTextView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.descriptionTextView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5),
             self.descriptionTextView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5)

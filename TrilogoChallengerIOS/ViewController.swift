@@ -8,6 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var page = 1
     var results = [Movie]()
     let tableView: UITableView = {
         let table = UITableView()
@@ -17,10 +18,36 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUrl()
+
+        setupBarButtoms()
+        setupUrl(page: self.page)
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView )// Do any additional setup after loading the view.
+    }
+    
+    func setupBarButtoms() {
+        let nextButtom = UIBarButtonItem(title: "próxima", style: .plain, target: self, action: #selector(nextPage))
+        let lastButtom = UIBarButtonItem(title: "anterior", style: .plain, target: self, action: #selector(lastPage))
+
+        navigationItem.rightBarButtonItem =  nextButtom
+        navigationItem.leftBarButtonItem = lastButtom
+        self.title = "Página \(page)"
+    }
+    
+    @objc func nextPage() {
+        self.page = self.page + 1
+        setupUrl(page: self.page )
+        self.title = "Página \(page)"
+    }
+    
+    @objc func lastPage() {
+        self.page = self.page - 1
+        if self.page <= 0 {
+            //mostrar toast dizendo "você está na primeira página, experimente ir adiante"
+        }
+        setupUrl(page: self.page)
+        self.title = "Página \(page)"
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,6 +67,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.imagePoster.image = UIImage(data: data)
         }
         cell.movieTitleLabel.text = results[indexPath.row].title
+        cell.releaseDataLabel.text = "Estreia : \(results[indexPath.row].release_date)"
         return cell
     }
     
@@ -48,8 +76,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationController?.pushViewController(dt, animated: true)
     }
     
-    func setupUrl() {
-        if let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=c2e78b4a8c14e65dd6e27504e6df95ad&language=en-US&page=1") {
+    func setupUrl(page : Int) {
+        results.removeAll()
+        let  api_key = "c2e78b4a8c14e65dd6e27504e6df95ad"
+        let language = "pt-BR"
+        if let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(api_key)&language=\(language)&page=\(page)") {
             URLSession.shared.dataTask(with: url){ data, response, error in
                 if let data = data {
                     do {
