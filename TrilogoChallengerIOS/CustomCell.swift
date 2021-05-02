@@ -75,7 +75,7 @@ class CustomCell: UITableViewCell {
             
             movieTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             movieTitleLabel.leadingAnchor.constraint(equalTo: self.imagePoster.trailingAnchor, constant: 10),
-            movieTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5),
+            movieTitleLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -5),
             
             releaseDataLabel.topAnchor.constraint(equalTo:  movieTitleLabel.bottomAnchor, constant: 10),
             releaseDataLabel.leadingAnchor.constraint(equalTo: self.imagePoster.trailingAnchor, constant: 10),

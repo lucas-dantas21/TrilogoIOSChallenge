@@ -79,14 +79,14 @@ class DetailsViewController: UIViewController {
             self.posterImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.posterImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.posterImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.posterImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5),
+            self.posterImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.45),
             
             self.TitleLabel.topAnchor.constraint(equalTo: self.posterImageView.bottomAnchor, constant: 10),
             self.TitleLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             self.TitleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
             self.descriptionTextView.topAnchor.constraint(equalTo: self.TitleLabel.bottomAnchor, constant: 5),
-            self.descriptionTextView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            self.descriptionTextView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -1),
             self.descriptionTextView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5),
             self.descriptionTextView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 5)
             
