@@ -50,6 +50,8 @@ class DetailsViewController: UIViewController {
     private func setupImagePoster(){
         if let data = try? Data(contentsOf: self.movie.posterURL){
             posterImageView.image = UIImage(data:data)
+        } else {
+            posterImageView.image = UIImage.init(imageLiteralResourceName: "SemImagem")
         }
     }
     
@@ -61,6 +63,7 @@ class DetailsViewController: UIViewController {
     }()
     
     private func setupDescritionTextView(){
+        
         descriptionTextView.text = movie.overview
         descriptionTextView.textColor = .white
         descriptionTextView.font = UIFont.boldSystemFont(ofSize: 18)
@@ -79,26 +82,14 @@ class DetailsViewController: UIViewController {
             self.posterImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5),
             
             self.TitleLabel.topAnchor.constraint(equalTo: self.posterImageView.bottomAnchor, constant: 10),
-            self.TitleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.TitleLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            self.TitleLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            self.TitleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
-            self.descriptionTextView.topAnchor.constraint(equalTo: self.TitleLabel.bottomAnchor, constant: 10),
+            self.descriptionTextView.topAnchor.constraint(equalTo: self.TitleLabel.bottomAnchor, constant: 5),
             self.descriptionTextView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.descriptionTextView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5),
-            self.descriptionTextView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5)
+            self.descriptionTextView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 5)
             
         ])
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

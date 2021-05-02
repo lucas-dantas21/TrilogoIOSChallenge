@@ -15,7 +15,7 @@ class CustomCell: UITableViewCell {
     weak var delegate : customCellDelegate?
     var movie : Movie?
     override func willMove(toSuperview newSuperview: UIView?) {
-       
+        
         setupContrainst()
         setupCell()
         accessoryView = favoriteButtom
@@ -24,13 +24,13 @@ class CustomCell: UITableViewCell {
     let favoriteButtom : UIButton = {
         let favoriteButtom = UIButton(type: .system)
         favoriteButtom.setTitle("favoritar", for: .normal)
-        favoriteButtom.setImage(#imageLiteral(resourceName: "coracao"), for: .normal)
-        favoriteButtom.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-       
+        favoriteButtom.setImage(UIImage.init(imageLiteralResourceName:"coracao"), for: .normal)
+        favoriteButtom.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        
         return favoriteButtom
     }()
     
- 
+    
     var movieTitleLabel: UILabel = {
         let movieTitleLabel = UILabel()
         movieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +49,9 @@ class CustomCell: UITableViewCell {
         return imagePoster
     }()
     
-   
+    
     func setupCell(){
-        self.backgroundColor = UIColor(red: 73 / 255, green: 13 / 255, blue: 117 / 255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 137 / 255, green: 182 / 255, blue: 231 / 255, alpha: 1.0)
         imagePoster.tintColor = .green
         
         movieTitleLabel.textColor = UIColor.white
@@ -71,7 +71,7 @@ class CustomCell: UITableViewCell {
             imagePoster.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             imagePoster.widthAnchor.constraint(equalToConstant: 120.0),
             imagePoster.heightAnchor.constraint(equalToConstant: 140.0),
-            imagePoster.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            imagePoster.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 5),
             
             movieTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             movieTitleLabel.leadingAnchor.constraint(equalTo: self.imagePoster.trailingAnchor, constant: 10),
