@@ -8,8 +8,25 @@
 import UIKit
 
 class CustomCell: UITableViewCell {
+    override func willMove(toSuperview newSuperview: UIView?) {
+       
+        setupContrainst()
+        setupCell()
+        accessoryView = starButtom
+    }
     
+    let starButtom : UIButton = {
+        let starButtom = UIButton(type: .system)
+        starButtom.setTitle("favoritar", for: .normal)
+        starButtom.setImage(#imageLiteral(resourceName: "coracao"), for: .normal)
+        starButtom.tintColor = .red
+        
     
+        starButtom.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        return starButtom
+    }()
+    
+ 
     var movieTitleLabel: UILabel = {
         let movieTitleLabel = UILabel()
         movieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -28,12 +45,7 @@ class CustomCell: UITableViewCell {
         return imagePoster
     }()
     
-    override func willMove(toSuperview newSuperview: UIView?) {
-       
-        setupContrainst()
-        setupCell()
-    }
-    
+   
     func setupCell(){
         self.backgroundColor = UIColor(red: 73 / 255, green: 13 / 255, blue: 117 / 255, alpha: 1.0)
         imagePoster.tintColor = .green
