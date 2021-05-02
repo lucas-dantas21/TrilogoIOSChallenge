@@ -11,7 +11,7 @@
 		792D694B26364DB900FB051E /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792D694A26364DB900FB051E /* MovieService.swift */; };
 		794B10432635D47C0016699A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10422635D47C0016699A /* AppDelegate.swift */; };
 		794B10452635D47C0016699A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10442635D47C0016699A /* SceneDelegate.swift */; };
-		794B10472635D47C0016699A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10462635D47C0016699A /* ViewController.swift */; };
+		794B10472635D47C0016699A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10462635D47C0016699A /* MainViewController.swift */; };
 		794B104C2635D47C0016699A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794B104B2635D47C0016699A /* Assets.xcassets */; };
 		794B104F2635D47C0016699A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794B104D2635D47C0016699A /* LaunchScreen.storyboard */; };
 		794B10582635D56F0016699A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10572635D56F0016699A /* CustomCell.swift */; };
@@ -24,7 +24,7 @@
 		794B103F2635D47C0016699A /* TrilogoChallengerIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrilogoChallengerIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		794B10422635D47C0016699A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		794B10442635D47C0016699A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		794B10462635D47C0016699A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		794B10462635D47C0016699A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		794B104B2635D47C0016699A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		794B104E2635D47C0016699A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		794B10502635D47C0016699A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 				792D69422636273900FB051E /* Models */,
 				794B10422635D47C0016699A /* AppDelegate.swift */,
 				794B10442635D47C0016699A /* SceneDelegate.swift */,
-				794B10462635D47C0016699A /* ViewController.swift */,
+				794B10462635D47C0016699A /* MainViewController.swift */,
 				794B10572635D56F0016699A /* CustomCell.swift */,
 				794B104B2635D47C0016699A /* Assets.xcassets */,
 				794B104D2635D47C0016699A /* LaunchScreen.storyboard */,
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				792D694B26364DB900FB051E /* MovieService.swift in Sources */,
-				794B10472635D47C0016699A /* ViewController.swift in Sources */,
+				794B10472635D47C0016699A /* MainViewController.swift in Sources */,
 				794B10432635D47C0016699A /* AppDelegate.swift in Sources */,
 				794B10582635D56F0016699A /* CustomCell.swift in Sources */,
 				79C17B7426378E0C00D798B9 /* DetailsViewController.swift in Sources */,

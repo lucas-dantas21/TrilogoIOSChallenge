@@ -7,23 +7,27 @@
 
 import UIKit
 
+protocol customCellDelegate: class {
+    func favoriteMovie(movie : Movie)
+}
+
 class CustomCell: UITableViewCell {
+    weak var delegate : customCellDelegate?
+    var movie : Movie?
     override func willMove(toSuperview newSuperview: UIView?) {
        
         setupContrainst()
         setupCell()
-        accessoryView = starButtom
+        accessoryView = favoriteButtom
     }
     
-    let starButtom : UIButton = {
-        let starButtom = UIButton(type: .system)
-        starButtom.setTitle("favoritar", for: .normal)
-        starButtom.setImage(#imageLiteral(resourceName: "coracao"), for: .normal)
-        starButtom.tintColor = .red
-        
-    
-        starButtom.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        return starButtom
+    let favoriteButtom : UIButton = {
+        let favoriteButtom = UIButton(type: .system)
+        favoriteButtom.setTitle("favoritar", for: .normal)
+        favoriteButtom.setImage(#imageLiteral(resourceName: "coracao"), for: .normal)
+        favoriteButtom.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+       
+        return favoriteButtom
     }()
     
  
@@ -55,6 +59,8 @@ class CustomCell: UITableViewCell {
         
         releaseDataLabel.textColor = UIColor.white
         releaseDataLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        favoriteButtom.addTarget(self, action: #selector(favoriteButtomAction), for: .touchUpInside)
     }
     
     func setupContrainst(){
@@ -77,5 +83,10 @@ class CustomCell: UITableViewCell {
             
             self.bottomAnchor.constraint(equalTo: self.imagePoster.bottomAnchor, constant: 10)
         ])
+    }
+    
+    @objc func favoriteButtomAction(){
+        guard let movie = self.movie else { return }
+        self.delegate?.favoriteMovie(movie: movie)
     }
 }

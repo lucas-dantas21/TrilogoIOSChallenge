@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var page = 1
     var totalPages = 1
+    var ids = [Int]()
     var results = [Movie]()
     let tableView: UITableView = {
         let table = UITableView()
@@ -44,8 +45,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let data = try? Data(contentsOf: results[indexPath.row].posterURL){
             cell.imagePoster.image = UIImage(data: data)
         }
+        cell.delegate = self
+        cell.movie = results[indexPath.row]
         cell.movieTitleLabel.text = results[indexPath.row].title
         cell.releaseDataLabel.text = "Estreia : \(results[indexPath.row].release_date)"
+        
         return cell
     }
     
@@ -107,6 +111,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         setupUrl(page: self.page)
         setupTitle()
     }
-    
 
+}
+
+extension MainViewController : customCellDelegate {
+    func favoriteMovie(movie: Movie) {
+        ids.append(movie.id)
+    }
 }
