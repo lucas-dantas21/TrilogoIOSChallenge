@@ -8,7 +8,7 @@
 import UIKit
 
 protocol customCellDelegate: class {
-    func favoriteMovie(movie : Movie)
+    func changeStatusOffavoriteMovieButtom(movie : Movie)
 }
 
 class CustomCell: UITableViewCell {
@@ -87,6 +87,6 @@ class CustomCell: UITableViewCell {
     
     @objc func favoriteButtomAction(){
         guard let movie = self.movie else { return }
-        self.delegate?.favoriteMovie(movie: movie)
+        self.delegate?.changeStatusOffavoriteMovieButtom(movie: movie)
     }
 }

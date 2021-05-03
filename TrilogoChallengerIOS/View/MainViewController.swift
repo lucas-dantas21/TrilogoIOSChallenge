@@ -65,7 +65,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             cell.favoriteButtom.tintColor = .gray
         }
-        
         return cell
     }
     
@@ -81,6 +80,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let baseAPIUrl = "https://api.themoviedb.org/3/movie/now_playing?"
         let language = "pt-BR"
         let urlSession = URLSession.shared
+        
+        https://api.themoviedb.org/3/movie/now_playing?api_key=c2e78b4a8c14e65dd6e27504e6df95ad&language="pt-BR"&page=1
         
         if let url = URL(string: "\(baseAPIUrl)api_key=\(api_key)&language=\(language)&page=\(page)") {
             urlSession.dataTask(with: url){ data, response, error in
@@ -144,7 +145,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 // Extensions
 
 extension MainViewController : customCellDelegate {
-    func favoriteMovie(movie: Movie) {
+    
+    func changeStatusOffavoriteMovieButtom (movie: Movie) {
         guard let index = ids.firstIndex(of: movie.id)else {
             ids.append(movie.id)
             self.tableView.reloadData()
