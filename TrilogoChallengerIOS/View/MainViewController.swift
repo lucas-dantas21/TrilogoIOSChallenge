@@ -8,11 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    //Variables
+    
     var page = 1
     var totalPages = 1
     var ids = [Int]()
     var results = [Movie]()
+    var movieService = MovieService()
     let tableView: UITableView = {
         let table = UITableView()
         table.separatorColor = UIColor.black
@@ -40,8 +41,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.frame = view.bounds
     }
     
-    // tableSetup
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         results.count
     }
@@ -50,21 +49,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomCell else {
             return UITableViewCell()
         }
-        if let data = try? Data(contentsOf: results[indexPath.row].posterURL){
+        
+        if let data = try? Data(contentsOf: results[indexPath.row].posterURL) {
             cell.imagePoster.image = UIImage(data: data)
-        }else {
+        }
+        else {
             cell.imagePoster.image = UIImage.init(imageLiteralResourceName: "SemImagem")
         }
-        cell.imagePoster.tintColor = .orange
+        
         cell.delegate = self
         cell.movie = results[indexPath.row]
         cell.movieTitleLabel.text = results[indexPath.row].title
         cell.releaseDataLabel.text = "Estreia : \(results[indexPath.row].release_date)"
+        
         if ids.contains(results[indexPath.row].id) {
             cell.favoriteButtom.tintColor = .blue
-        }else{
+        }
+        else {
             cell.favoriteButtom.tintColor = .gray
         }
+        
         return cell
     }
     
@@ -74,36 +78,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // RequestSetup
+    
     func setupUrl(page : Int) {
         results.removeAll()
-        let api_key = "c2e78b4a8c14e65dd6e27504e6df95ad"
-        let baseAPIUrl = "https://api.themoviedb.org/3/movie/now_playing?"
-        let language = "pt-BR"
-        let urlSession = URLSession.shared
-        
-        https://api.themoviedb.org/3/movie/now_playing?api_key=c2e78b4a8c14e65dd6e27504e6df95ad&language="pt-BR"&page=1
-        
-        if let url = URL(string: "\(baseAPIUrl)api_key=\(api_key)&language=\(language)&page=\(page)") {
-            urlSession.dataTask(with: url){ data, response, error in
-                if let data = data {
-                    do {
-                        let res = try JSONDecoder().decode(ResponseOfMovies.self, from: data)
-                        self.results.append(contentsOf: res.results)
-                        self.totalPages = res.total_pages
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    } catch let error {
-                        print(error)
-                    }
-                }
-                
-            }.resume()
+        movieService.setupURL(page: page) { (result) in
+            self.results =  result.results
+            self.totalPages = result.total_pages
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.setupTitle()
+            }
         }
-        setupTitle()
     }
     
-    // ButtomsBarSetup
+    // BarSetup
     
     func setupTitle() {
         self.title = "Página \(page) de \(totalPages)"
@@ -133,11 +122,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return
         }
         self.page = self.page - 1
-        if self.page <= 0 {
-            //mostrar toast dizendo "você está na primeira página, experimente ir adiante"
-        }
         setupUrl(page: self.page)
-        setupTitle()
     }
     
 }
@@ -147,7 +132,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 extension MainViewController : customCellDelegate {
     
     func changeStatusOffavoriteMovieButtom (movie: Movie) {
-        guard let index = ids.firstIndex(of: movie.id)else {
+        guard let index = ids.firstIndex(of: movie.id) else {
             ids.append(movie.id)
             self.tableView.reloadData()
             return

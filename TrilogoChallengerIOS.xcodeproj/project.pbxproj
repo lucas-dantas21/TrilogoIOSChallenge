@@ -15,6 +15,7 @@
 		794B104F2635D47C0016699A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 794B104D2635D47C0016699A /* LaunchScreen.storyboard */; };
 		794B10582635D56F0016699A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794B10572635D56F0016699A /* CustomCell.swift */; };
 		79C17B7426378E0C00D798B9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C17B7326378E0C00D798B9 /* DetailsViewController.swift */; };
+		79D265A2264216E400FEA32F /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D265A1264216E400FEA32F /* MovieService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		794B10502635D47C0016699A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794B10572635D56F0016699A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		79C17B7326378E0C00D798B9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		79D265A1264216E400FEA32F /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		794B10412635D47C0016699A /* TrilogoChallengerIOS */ = {
 			isa = PBXGroup;
 			children = (
+				79D265A0264216A600FEA32F /* Services */,
 				792D69422636273900FB051E /* Models */,
 				79772B86263F6ABA008A472A /* View */,
 				794B104B2635D47C0016699A /* Assets.xcassets */,
@@ -87,6 +90,14 @@
 				794B10462635D47C0016699A /* MainViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		79D265A0264216A600FEA32F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				79D265A1264216E400FEA32F /* MovieService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 				794B10472635D47C0016699A /* MainViewController.swift in Sources */,
 				794B10432635D47C0016699A /* AppDelegate.swift in Sources */,
 				794B10582635D56F0016699A /* CustomCell.swift in Sources */,
+				79D265A2264216E400FEA32F /* MovieService.swift in Sources */,
 				79C17B7426378E0C00D798B9 /* DetailsViewController.swift in Sources */,
 				794B10452635D47C0016699A /* SceneDelegate.swift in Sources */,
 				792D69442636274700FB051E /* Movie.swift in Sources */,

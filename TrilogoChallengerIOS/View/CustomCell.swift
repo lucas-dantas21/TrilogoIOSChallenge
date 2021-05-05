@@ -34,18 +34,21 @@ class CustomCell: UITableViewCell {
     var movieTitleLabel: UILabel = {
         let movieTitleLabel = UILabel()
         movieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         return movieTitleLabel
     }()
     
     var releaseDataLabel: UILabel = {
         let releaseDataLabel = UILabel()
         releaseDataLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         return releaseDataLabel
     }()
     
     var imagePoster: UIImageView = {
         let imagePoster = UIImageView()
         imagePoster.translatesAutoresizingMaskIntoConstraints = false
+        
         return imagePoster
     }()
     
