@@ -18,16 +18,16 @@ class CustomCell: UITableViewCell {
         
         setupContrainst()
         setupCell()
-        accessoryView = favoriteButtom
+        accessoryView = favoriteMovieButtom
     }
     
-    let favoriteButtom : UIButton = {
-        let favoriteButtom = UIButton(type: .system)
-        favoriteButtom.setTitle("favoritar", for: .normal)
-        favoriteButtom.setImage(UIImage.init(imageLiteralResourceName:"coracao"), for: .normal)
-        favoriteButtom.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+    let favoriteMovieButtom : UIButton = {
+        let favoriteMovieButtom = UIButton(type: .system)
+        favoriteMovieButtom.setTitle("favoritar", for: .normal)
+        favoriteMovieButtom.setImage(UIImage.init(imageLiteralResourceName:"coracao"), for: .normal)
+        favoriteMovieButtom.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
-        return favoriteButtom
+        return favoriteMovieButtom
     }()
     
     
@@ -63,7 +63,7 @@ class CustomCell: UITableViewCell {
         releaseDataLabel.textColor = UIColor.white
         releaseDataLabel.font = UIFont.boldSystemFont(ofSize: 18)
         
-        favoriteButtom.addTarget(self, action: #selector(favoriteButtomAction), for: .touchUpInside)
+        favoriteMovieButtom.addTarget(self, action: #selector(favoriteMovieButtomAction), for: .touchUpInside)
     }
     
     func setupContrainst(){
@@ -88,7 +88,7 @@ class CustomCell: UITableViewCell {
         ])
     }
     
-    @objc func favoriteButtomAction(){
+    @objc func favoriteMovieButtomAction(){
         guard let movie = self.movie else { return }
         self.delegate?.changeStatusOffavoriteMovieButtom(movie: movie)
     }

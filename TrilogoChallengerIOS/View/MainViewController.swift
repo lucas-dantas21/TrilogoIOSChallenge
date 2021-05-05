@@ -63,10 +63,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.releaseDataLabel.text = "Estreia : \(results[indexPath.row].release_date)"
         
         if ids.contains(results[indexPath.row].id) {
-            cell.favoriteButtom.tintColor = .blue
+            cell.favoriteMovieButtom.tintColor = .blue
         }
         else {
-            cell.favoriteButtom.tintColor = .gray
+            cell.favoriteMovieButtom.tintColor = .gray
         }
         
         return cell
@@ -92,7 +92,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    // BarSetup
+    // BarButtomSetup
     
     func setupTitle() {
         self.title = "Página \(page) de \(totalPages)"
